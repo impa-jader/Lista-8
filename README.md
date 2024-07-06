@@ -15,11 +15,11 @@ def compra_esquecida_compulsiva(coisas: list,memoria:int):
     comprei=[]
     lembro=[]
     for i in coisas:
-        if i in coisas:
+        if i not in lembro:
             comprei.append(i)
             if len(lembro)== memoria:
-                lembro[0].remuve
+                lembro.pop(0)
             lembro.append(i)
-        return comprei
+    return comprei
 
 print(compra_esquecida_compulsiva([1,1,2,3,3,4,5,4,2,1],3))#1,2,3,4,5,2,1
