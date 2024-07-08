@@ -102,15 +102,18 @@ class polygons:
         def __init__(self):
             self.lista = {}
         def add_polygon(self, poligono, name: str):
-            self.list[name]=poligono
+            self.lista[name]=poligono
         def remove_polygon(self, name: str):
             self.lista.pop(name)
         def save_to_file(self, filename: str):
-            with open(filename,'w') as file:
-                  file.write(self.lista)
+            with open(f'{filename}.txt','w') as file:
+                  file.write(str(self.lista))#Tenho que mudar, preciso escrever em um formato legal
         def load_from_file(self, filename: str):
-            with open(filename,'r') as file:
+            with open(f'{filename}.txt','r') as file:
                 self.lista =file.read()
+        
+            def __str__(self):
+              return str(len(self.lista.keys()))#botei len só pq eu queria testar
 		
 			
 p1 = Point2D(1, 2)
@@ -120,3 +123,10 @@ p4 = Point2D(7, 8)
 
 triangle = Polygon([p1, p2, p3], 'red')
 rectangle = Polygon([p1, p2, p3, p4], 'blue')
+teste=polygons()
+teste.add_polygon(triangle,'tri')
+teste.add_polygon(rectangle,'re')
+teste.save_to_file('teste')
+"""print(teste)"""
+teste_ler=polygons().load_from_file('teste')
+"""print(teste_ler)"""
