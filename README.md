@@ -81,7 +81,42 @@ print(parentese_valido(") é pra responder não"))
 print(parentese_valido("(( é pra responder não)"))
 print(parentese_valido("(é pra (r)esponder sim)"))
 
+Resposta= """
+Jader Duarte - lista 8- questão 2 
+Saida:
 
-print(parentese_valido(") é pra responder não"))
-print(parentese_valido("(( é pra responder não)"))
-print(parentese_valido("(é pra (r)esponder sim)"))
+""" 
+print(Resposta)
+
+# mandarei em zip como modulo
+class Point2D:
+	def __init__(self,x,y):
+		self.cord= (x,y)
+	
+class Polygon:
+	def __init__(self,points,color):
+		self.points= points	
+		self.color=color
+			
+class polygons:
+        def __init__(self):
+            self.lista = {}
+        def add_polygon(self, poligono, name: str):
+            self.list[name]=poligono
+        def remove_polygon(self, name: str):
+            self.lista.pop(name)
+        def save_to_file(self, filename: str):
+            with open(filename,'w') as file:
+                  file.write(self.lista)
+        def load_from_file(self, filename: str):
+            with open(filename,'r') as file:
+                self.lista =file.read()
+		
+			
+p1 = Point2D(1, 2)
+p2 = Point2D(3, 4)
+p3 = Point2D(5, 6)
+p4 = Point2D(7, 8)
+
+triangle = Polygon([p1, p2, p3], 'red')
+rectangle = Polygon([p1, p2, p3, p4], 'blue')
