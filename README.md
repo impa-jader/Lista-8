@@ -1,10 +1,35 @@
 # Lista-8
 def ordenador(n_list,m_list):
-    tamanho=range(len(m_list+n_list))
-    crescente=list(set(n_list+m_list))
-    r=[crescente[-(n+1)]for n in tamanho]
+    tamanho=len(m_list+n_list)
+    n_indice=0
+    m_indice=0
+    r=[]
+    while len(r)<tamanho:
+        if n_indice==len(n_list):
+            while len(r)<tamanho:
+                r.append(m_list[m_indice])
+                m_indice+=1
+        elif m_indice==len(m_list):
+            while len(r)<tamanho:
+                r.append(n_list[n_indice])
+                n_indice+=1
+                    
+        elif n_list[n_indice]>m_list[m_indice]:
+            r.append(n_list[n_indice])
+            n_indice+=1
+
+        elif n_list[n_indice]<m_list[m_indice]:
+            r.append(m_list[m_indice])
+            m_indice+=1
     return r
+
+
     
+
+n_test=[3,2,1]
+m_test=[17,8,7,5]
+print(ordenador(n_test,m_test))#17,8,7,5,3,2,1
+
     
 
 n_test=[3,2,1]
